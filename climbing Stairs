@@ -1,0 +1,14 @@
+#using memorization
+def climbStairs(n):
+    def solve(n):
+        if n==0:
+            return 1
+        if n<0:
+            return 0
+        if dp[n]==-1:
+            oneJumo=solve(n-1)
+            twoJumo=solve(n-2)
+            dp[n]=oneJump+twoJump
+        return dp[n]
+    dp=[-1]*(n+1)
+    return solve(n)
