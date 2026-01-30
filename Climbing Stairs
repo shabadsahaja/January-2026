@@ -1,0 +1,14 @@
+#by using recurison method
+def climbStairs(n):
+    def solve(n):
+        if n==0:
+            return 0
+        if n<0:
+            return 1
+        oneJump=solve(n-1)
+        twoJump=solve(n-2)
+        return oneJump+twoJump
+    return solve(n)
+
+
+  
