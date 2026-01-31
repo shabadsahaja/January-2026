@@ -1,0 +1,15 @@
+    def longestUniqueSubstr(s):
+        # code here
+        n = len(s)
+        left = 0 
+        right = 0 
+        maxLen = 0
+        d = {} 
+        while(right<n): 
+            # shrink 
+            if(s[right] in d and d[s[right]]>=left):
+                left = d[s[right]]+1 
+            maxLen = max(maxLen,right-left+1) 
+            d[s[right]] = right
+            right+=1 
+        return maxLen 
