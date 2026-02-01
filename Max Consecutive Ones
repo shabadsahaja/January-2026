@@ -1,0 +1,17 @@
+def longestSubSeg(arr,k):
+    n=len(arr)
+    left,right=0,0
+    maxLen=0
+    zeros=0
+    while(right<n):
+        if arr[right]==0:
+            zeros+=1
+        while(zeros>k):
+            if(arr[left]==0):
+                zeros-=1                
+            left+=1
+        maxLen=max(maxLen,right-left+1)
+        right+=1
+    return maxLen
+        
+            
