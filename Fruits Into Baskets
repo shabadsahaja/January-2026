@@ -1,0 +1,18 @@
+def findMaxFruits(arr):
+    n=len(arr)
+    left,right=0,0
+    maxLen=0
+    d={}
+    while right<n:
+        if arr[right] in d:
+            d[arr[right]]+=1
+        else:
+            d[arr[right]]=1
+        while len(d)>2:
+            d[arr[left]]-=1
+            if d[arr[left]]==0:
+                del d[arr[left]]
+            left+=1
+        maxLen=max(maxLen,right-left+1)
+        right+=1
+    return maxLen
