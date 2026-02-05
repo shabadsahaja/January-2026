@@ -1,0 +1,14 @@
+def frequencySort(self,s):
+    d={}
+    for num in s:
+        if num in d:
+            d[num]=d[num]+1
+        else:
+            d[num]=1
+    updated_d=sorted(d.items(),key=lambda x:-x[1])
+    reusltString=""
+    for key,value in updated_d:
+        for i in range(value):
+              reusltString=reusltString+key
+    return reusltString 
+        
