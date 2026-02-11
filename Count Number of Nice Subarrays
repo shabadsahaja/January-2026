@@ -1,0 +1,18 @@
+class Solution:
+    def numberOfSubarrays(self, nums: List[int], goal: int) -> int:
+        def func(nums,goal):
+            Sum=0
+            count=0
+            left,right=0,0
+            n=len(nums)
+            while(right<n):
+                Sum+=nums[right]
+                while(Sum>goal):
+                    Sum-=nums[left]
+                    left+=1
+                count+=(right-left+1)
+                right+=1
+            return count
+        for ind in range(0,len(nums)):
+            nums[ind]=nums[ind]%2
+        return func(nums,goal) - func(nums,goal-1)
