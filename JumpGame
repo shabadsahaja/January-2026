@@ -1,0 +1,8 @@
+def jumpGame(nums):
+    n=len(nums)
+    maxInd=0
+    for ind in range(0,n):
+        if ind>maxInd:
+            return False
+        maxInd=max(maxInd,ind+nums[ind])
+    return True
