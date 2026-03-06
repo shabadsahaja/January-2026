@@ -1,0 +1,17 @@
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        n=len(height)
+        left_height=[0]*n
+        left_height[0] = height[0] #=> 4
+        #Now loop from left to right:
+        for i in range(1,n):
+            left_height[i]=max(left_height[i-1],height[i]) # calculate the maximum height of the left bar for each position
+        right_height=[0]*n
+        right_height[-1]=height[-1] # => 5
+        #Now loop from right to left:
+        for i in range(n-2,-1,-1):
+            right_height[i]=max(right_height[i+1],height[i]) # calculate the maximum height of the right bar for each position
+        water_trapped=0
+        for i in range(0,n):
+            water_trapped+=min(left_height[i],right_height[i])-height[i] # calculate the water trapped between the left and right bars at each position
+        return water_trapped
