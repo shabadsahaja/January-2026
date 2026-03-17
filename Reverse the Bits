@@ -1,0 +1,10 @@
+class Solution:
+    def reverseBits(self, n: int) -> int:
+        ans = 0
+    
+        for i in range(32):
+            ans = ans << 1          # shift answer left
+            ans = ans | (n & 1)     # take last bit of n
+            n = n >> 1              # shift n right
+        
+        return ans
