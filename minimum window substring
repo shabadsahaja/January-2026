@@ -1,0 +1,30 @@
+def minWindowSubString(s,t):
+    hashArray=[0]*256
+    for char in t:
+        hashArray[ord(char)]+=1
+    left,right=0,0
+    minLen=float('inf')
+    start_ind=-1
+    count=0
+    n=len(s)
+    while right<n:
+        if hashArray[ord(s[right])]>0:
+            count+=1
+        hashArray[ord(s[right])]-=1
+        #shrink condition
+        while count==len(t):
+            if right-left+1<minLen:
+                start_ind=left
+                minLen=min(minLen,right-left+1)
+            hashArray[ord(s[left])]+=1
+            if hashArray[ord(s[left])]>0:
+                count-=1
+            left+=1
+        right+=1
+    if start_ind==-1:
+        return ""
+    return s[start_ind:start_ind+minLen]
+s="ddaaabbca"
+t="abc"
+print(minWindowSubString(s,t))
+    
