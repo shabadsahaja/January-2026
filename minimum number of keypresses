@@ -1,0 +1,12 @@
+num=str(input())
+press=0
+i=0
+n=len(num)
+while i<n:
+    if i<n-1 and num[i:i+2]=='00':
+        press+=1
+        i+=1
+    else:
+        press+=1
+        i+=1
+print(press)
