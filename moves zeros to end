@@ -1,0 +1,12 @@
+arr=list(map(int,input().split()))
+n=len(arr)
+result=0
+zeros=[]
+non_zeros=[]
+for i in range(0,n):
+    if arr[i]==0:
+        zeros.append(arr[i])
+    else:
+        non_zeros.append(arr[i))
+result=non_zeros+zeros
+print(result)
