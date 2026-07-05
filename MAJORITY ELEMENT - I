@@ -1,0 +1,12 @@
+nums=list(map(int,input().split()))
+ele1,cnt1=0,0
+for i in nums:
+    if cnt1==0:
+        ele1=i
+        cnt1+=1
+    elif i==ele1:
+        cnt1+=i
+    elif i!=ele1:
+        cnt1-=1
+print(ele1)
+        
