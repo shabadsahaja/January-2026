@@ -1,0 +1,24 @@
+class Solution:
+    def canPartitionKSubsets(self, nums: List[int], k: int) -> bool:
+        total = sum(nums)
+        if total % k != 0:
+            return False
+        target = total // k
+        nums.sort(reverse=True)
+        visited = [False] * len(nums)
+        def backtrack(start, curr_sum, k):
+            if k == 1:
+                return True
+            if curr_sum == target:
+                return backtrack(0, 0, k - 1)
+            for i in range(start, len(nums)):
+                if visited[i]:
+                    continue
+                if curr_sum + nums[i] > target:
+                    continue
+                visited[i] = True
+                if backtrack(i + 1, curr_sum + nums[i], k):
+                    return True
+                visited[i] = False
+            return False
+        return backtrack(0, 0, k)
