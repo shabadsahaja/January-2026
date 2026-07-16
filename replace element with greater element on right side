@@ -1,0 +1,9 @@
+class Solution:
+    def replaceElements(self, nums: List[int]) -> List[int]:
+        n=len(nums)
+        maxi=-1
+        for i in range(n-1,-1,-1):
+            current=nums[i]
+            nums[i]=maxi
+            maxi=max(maxi,current)
+        return nums
