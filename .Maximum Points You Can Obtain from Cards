@@ -1,0 +1,15 @@
+k=4
+arr=[6,2,3,4,7,2,1,7,1]
+n=len(arr)
+left=0
+right=k-1
+Sum=sum(arr[0:k])
+max_sum=Sum
+j=n-1
+for _ in range(k):
+    Sum-=arr[right]
+    right-=1
+    Sum+=arr[j]
+    j-=1
+    max_sum=max(Sum,max_sum)
+print(max_sum)
