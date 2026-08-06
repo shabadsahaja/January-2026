@@ -1,0 +1,15 @@
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        n=len(nums)
+        maxi=float("-inf")
+        left=1
+        right=1
+        for i in range(n):
+            left=left*nums[i]
+            right*=nums[n-1-i]
+            maxi=max(left,right,maxi)
+            if left==0:
+                left=1
+            if right==0:
+                right=1
+        return maxi
